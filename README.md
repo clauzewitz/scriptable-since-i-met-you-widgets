@@ -4,7 +4,7 @@
 
 디데이 확인을 위해 만들어진 Scriptable 위젯입니다.
 
-[Source](since-i-met-you.js)
+[Source](since_i_met_you.js)
 
 |                     |
 | ------------------- |
