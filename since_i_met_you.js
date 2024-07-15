@@ -90,7 +90,7 @@ const DDayClient = {
             const latestVersion = await new Request('https://raw.githubusercontent.com/clauzewitz/scriptable-since-i-met-you-widgets/main/version').loadString();
 
             if (CommonUtil.compareVersion(VERSION, latestVersion)) {
-                const code = await new Request('https://raw.githubusercontent.com/clauzewitz/scriptable-since-i-met-you-widgets/main/since-i-met-you.js').loadString();
+                const code = await new Request('https://raw.githubusercontent.com/clauzewitz/scriptable-since-i-met-you-widgets/main/since_i_met_you.js').loadString();
                 this.fm.writeString(this.fm.joinPath(this.fm.documentsDirectory(), `${Script.name()}.js`), code);
                 await DDayClient.presentAlert(`Update to version ${latestVersion}\nPlease launch the app again.`);
             } else {
