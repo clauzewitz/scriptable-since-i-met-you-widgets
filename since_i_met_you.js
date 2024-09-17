@@ -32,7 +32,7 @@ const MENU_PROPERTY = {
 Object.freeze(MENU_PROPERTY);
 
 const CommonUtil = {
-    isNumber: (value) => {
+    isNumber: function (value) {
         let isValid = false;
     
         if (typeof value === 'number') {
@@ -43,7 +43,7 @@ const CommonUtil = {
     
         return isValid;
     },
-    compareVersion: (version1 = '', version2 = '') => {
+    compareVersion: function (version1 = '', version2 = '') {
         version1 = version1.replace(/\.|\s|\r\n|\r|\n/gi, '');
         version2 = version2.replace(/\.|\s|\r\n|\r|\n/gi, '');
 
@@ -57,7 +57,7 @@ const CommonUtil = {
 
 const DDayClient = {
     //----------------------------------------------
-    initialize: () => {
+    initialize: function () {
         try {
             this.USES_ICLOUD = module.filename.includes('Documents/iCloud~');
             this.fm = this.USES_ICLOUD ? FileManager.iCloud() : FileManager.local();
@@ -68,11 +68,11 @@ const DDayClient = {
             log(e.message);
         }
     },
-    setResource: async (image) => {
+    setResource: async function (image) {
         this.fm.writeImage(this.resourcePath, image);
     },
     //----------------------------------------------
-    getResource: async () => {
+    getResource: async function () {
 
         if (this.fm.fileExists(this.resourcePath)) {
             await this.fm.downloadFileFromiCloud(this.resourcePath);
@@ -81,11 +81,11 @@ const DDayClient = {
         
         return null;
     },
-    clearCache: async () => {
+    clearCache: async function () {
         this.fm.remove(this.root);
     },
     //----------------------------------------------
-    updateModule: async () => {
+    updateModule: async function () {
         try {
             const latestVersion = await new Request('https://raw.githubusercontent.com/clauzewitz/scriptable-since-i-met-you-widgets/main/version').loadString();
 
@@ -101,7 +101,7 @@ const DDayClient = {
         }
     },
     //----------------------------------------------
-    presentAlert: async (prompt = '', items = ['OK'], asSheet = false) => {
+    presentAlert: async function (prompt = '', items = ['OK'], asSheet = false) {
         try {
             const alert = new Alert();
             alert.message = prompt;
