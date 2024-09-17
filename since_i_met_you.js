@@ -1,7 +1,7 @@
 // Variables used by Scriptable.
 // These must be at the very top of the file. Do not edit.
 // icon-color: yellow icon-glyph: calendar;
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 
 const DEBUG = false;
 const log = (args) => {
@@ -19,8 +19,8 @@ const ARGUMENTS = {
     // ready for a refresh, whether it actually 
     // refreshes is up to IOS
     refreshInterval: 60, //mins
-    fontColor: Device.isUsingDarkAppearance() ? Color.white() : Color.darkGray(),
-    backgroundColor: Device.isUsingDarkAppearance() ? Color.darkGray() : Color.white()
+    fontColor: Device.isUsingDarkAppearance() || true ? Color.white() : Color.darkGray(),
+    backgroundColor: Device.isUsingDarkAppearance() || true ? Color.darkGray() : Color.white()
 };
 Object.seal(ARGUMENTS);
 
